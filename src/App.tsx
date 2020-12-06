@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {
+    AppBar,
+    Button,
+    Card,
+    CardActionArea, CardActions, CardContent,
+    CardMedia, Container, createMuiTheme,
+    makeStyles, MuiThemeProvider, TextField,
+    Toolbar, Typography
+} from "@material-ui/core"
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+import {RequestResetPassword} from "./views/RequestResetPassword";
+import {ChangePassword} from "./views/ChangePassword";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface AppProps {
+
 }
 
-export default App;
+const theme = createMuiTheme({
+    palette: {
+        primary:{
+            main: '#000'
+        },
+        secondary: {
+            main: '#0098c3'
+        }
+    }
+})
+
+export const App: React.FC<AppProps> = () => {
+
+    return (
+        <MuiThemeProvider theme={theme}>
+            <Router>
+                <Switch>
+                    <Route path="/change">
+                        <ChangePassword />
+                    </Route>
+                    <Route path="/">
+                        <RequestResetPassword />
+                    </Route>
+                </Switch>
+            </Router>
+        </MuiThemeProvider>
+    )
+}
