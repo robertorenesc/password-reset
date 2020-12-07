@@ -1,21 +1,17 @@
 import React from 'react'
 import {
-    AppBar,
-    Button,
-    Card,
-    CardActionArea, CardActions, CardContent,
-    CardMedia, Container, createMuiTheme,
-    makeStyles, MuiThemeProvider, TextField,
-    Toolbar, Typography
+    createMuiTheme,
+    MuiThemeProvider
 } from "@material-ui/core"
 import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    useHistory
 } from "react-router-dom";
 import {RequestResetPassword} from "./views/RequestResetPassword";
 import {ChangePassword} from "./views/ChangePassword";
+import {ChangeSuccess} from "./views/ChageSuccess";
 
 interface AppProps {
 
@@ -34,15 +30,20 @@ const theme = createMuiTheme({
 
 export const App: React.FC<AppProps> = () => {
 
+    const history = useHistory()
+
     return (
         <MuiThemeProvider theme={theme}>
             <Router>
                 <Switch>
                     <Route path="/change">
-                        <ChangePassword />
+                        <ChangePassword/>
                     </Route>
-                    <Route path="/">
-                        <RequestResetPassword />
+                    <Route path="/success">
+                        <ChangeSuccess/>
+                    </Route>
+                    <Route path="/request">
+                        <RequestResetPassword/>
                     </Route>
                 </Switch>
             </Router>

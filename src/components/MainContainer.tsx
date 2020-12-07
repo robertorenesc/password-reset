@@ -1,11 +1,9 @@
 import React from 'react'
 import {
     AppBar,
-    Button,
     Card,
-    CardActionArea, CardActions, CardContent,
-    CardMedia, Container,
-    makeStyles, TextField,
+    CardActions, CardContent,
+    Container,
     Toolbar, Typography
 } from "@material-ui/core"
 
@@ -22,7 +20,7 @@ export const MainContainer: React.FC<MainContainerProps> = (props) => {
         <React.Fragment>
             <AppBar position="static" className=".bx-nav-bar">
                 <Toolbar>
-                    <img src={"blackstone-logo.png"} width={140}></img>
+                    <img src={"blackstone-logo.png"} width={140} alt={"Blackstone"}></img>
                 </Toolbar>
             </AppBar>
             <Container maxWidth="sm">
